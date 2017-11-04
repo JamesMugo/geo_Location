@@ -24,6 +24,16 @@ function onSuccess(position) {
         'Heading: '            + position.coords.heading               + '<br />' +
         'Speed: '              + position.coords.speed                 + '<br />' +
         'Timestamp: '          + position.timestamp          + '<br />';
+
+        var uluru = {lat: position.coords.latitude, lng: position.coords.longitude};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
 }
 
 // onError Callback receives a PositionError object

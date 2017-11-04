@@ -8,6 +8,13 @@
 
   <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
   <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
   
   <script>
     var userAgent = navigator.userAgent + '';
@@ -38,9 +45,23 @@
     	</div><!-- /header -->
 
     	<div data-role="content">
-            <p id="geolocation">
-                Finding geolocation....
-            </p>
+      <h3>My Google Maps Demo</h3>
+      <div id="map"></div>
+      <div id="geolocation">
+        <button onclick="onDeviceReady()">Click For Location</button>
+      </div>
+      <script>
+        function initMap() {
+          var uluru = {lat: -25.363, lng: 131.044};
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: uluru
+          });
+        }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi2reR4AFlnI-p7TDqElEqDQvNhb35fTE&callback=initMap">
+      </script>
     	</div><!-- /content -->
 
     	<div data-role="footer">
